@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- Global parameters -->
+    <param name="traits_path" value="$(env HOME)/.ros/conscious_robot/default_character_traits.json" />
+    <param name="llm_endpoint" value="http://localhost:8080/phi2" />
+    <param name="update_interval" value="0.5" />
+    <param name="batch_size" value="50" />
+    <param name="log_flush_interval_s" value="10.0" />
+    <param name="trait_update_interval_s" value="60.0" />
+    <param name="learning_rate" value="0.01" />
+
+    <!-- Sensory Qualia Node -->
+    <node name="sensory_qualia_node" pkg="sentience" type="sensory_qualia_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/sensory_qualia_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- World Model Node -->
+    <node name="world_model_node" pkg="sentience" type="world_model_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/world_model_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Cognitive Reasoning Node -->
+    <node name="cognitive_reasoning_node" pkg="sentience" type="cognitive_reasoning_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/reasoning_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Cognitive Control Node -->
+    <node name="cognitive_control_node" pkg="sentience" type="cognitive_control_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/control_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Behavior Execution Node -->
+    <node name="behavior_execution_node" pkg="sentience" type="behavior_execution_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/behavior_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Attention Node -->
+    <node name="attention_node" pkg="sentience" type="attention_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/attention_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Emotion Node -->
+    <node name="emotion_node" pkg="sentience" type="emotion_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/emotion_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Motivation Node -->
+    <node name="motivation_node" pkg="sentience" type="motivation_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/motivation_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Value Drift Monitor Node -->
+    <node name="value_drift_monitor_node" pkg="sentience" type="value_drift_monitor_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/value_drift_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- System Integration Node -->
+    <node name="system_integration_node" pkg="sentience" type="system_integration_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/system_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="1.0" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Feedback Loop Node -->
+    <node name="feedback_loop_node" pkg="sentience" type="feedback_loop_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/feedback_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+
+    <!-- Hardware Interface Node -->
+    <node name="hardware_interface_node" pkg="sentience" type="hardware_interface_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/hardware_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+        <param name="speech_endpoint" value="http://localhost:8081/tts" />
+        <param name="motor_endpoint" value="http://localhost:8082/motor" />
+    </node>
+
+    <!-- Goal Management Node -->
+    <node name="goal_management_node" pkg="sentience" type="goal_management_node.py" output="screen">
+        <param name="db_path" value="$(env HOME)/.ros/conscious_robot/goal_log.db" />
+        <param name="traits_path" value="$(param traits_path)" />
+        <param name="update_interval" value="$(param update_interval)" />
+        <param name="batch_size" value="$(param batch_size)" />
+        <param name="log_flush_interval_s" value="$(param log_flush_interval_s)" />
+        <param name="trait_update_interval_s" value="$(param trait_update_interval_s)" />
+        <param name="llm_endpoint" value="$(param llm_endpoint)" />
+        <param name="learning_rate" value="$(param learning_rate)" />
+    </node>
+</launch>
